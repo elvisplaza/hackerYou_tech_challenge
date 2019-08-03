@@ -13,23 +13,26 @@ const ActorCard = props => {
   // ============= start of state ====================
   const [showInfo, setShowInfo] = useState(false);
   const [actorMovieList, setActorMovieList] = useState([]);
+
+
+  // =========================== end of state ========================
+  
   const handleShowInfo = () => {
     setShowInfo(!showInfo);
+    return getAllMoviesFromActor();
   };
-  // =========================== end of state ========================
-
   // this function will gather the list of movies and set it to the actorMovieList state.
   const getAllMoviesFromActor = async () => {
     const { id } = props.actorInfo;
     const movieListData = await getActorMovieCredits(id);
-    const movieList = await movieListData.cast.map(movie => movie.title);
+    const movieList =  movieListData.cast.map(movie => {
+      return movie.title
+    });
+    // console.log(movieListData, "inside actor Card");
     return setActorMovieList(movieList);
   };
 
-  // ============= start of useEffect =====================
-  useEffect(() => {
-    getAllMoviesFromActor();
-  }, []);
+
   return (
     <section className={s.actor_card}>
       <div className={s.actor}>
@@ -40,8 +43,9 @@ const ActorCard = props => {
         </p>
       </div>
       <ul className={s.movie_list_container}>
-        {showInfo && actorMovieList !== [] ? (
-          <Fragment>
+        {showInfo && actorMovieList == [] && actorMovieList.cast == undefined ? (
+         "loading"
+        ) : ( <Fragment>
             <p>Other Films</p>
             {actorMovieList.map(movieName => {
               return (
@@ -51,8 +55,7 @@ const ActorCard = props => {
                 </li>
               );
             })}
-          </Fragment>
-        ) : null}
+          </Fragment>)}
       </ul>
     </section>
   );

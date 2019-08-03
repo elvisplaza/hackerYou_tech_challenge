@@ -18,9 +18,13 @@ const ActorCard = props => {
   // =========================== end of state ========================
   
   const handleShowInfo = () => {
-    setShowInfo(!showInfo);
-    return getAllMoviesFromActor();
+    handleDisplayList();
+    return setShowInfo(!showInfo);
+
   };
+  const handleDisplayList =()=>{
+     return getAllMoviesFromActor()
+  }
   // this function will gather the list of movies and set it to the actorMovieList state.
   const getAllMoviesFromActor = async () => {
     const { id } = props.actorInfo;
@@ -37,16 +41,15 @@ const ActorCard = props => {
     <section className={s.actor_card}>
       <div className={s.actor}>
         <p>{props.actorInfo.name}</p>
-        <p className={s.movie_icon_span} onClick={handleShowInfo}>
+        <p className={s.movie_icon_span} onClick={(handleShowInfo)}>
           {" "}
           <img src={movieIcon} className={s.movie_icon} alt="a picture of a projector style film, with four holes inside a circle" />
         </p>
       </div>
       <ul className={s.movie_list_container}>
-        {showInfo && actorMovieList == [] && actorMovieList.cast == undefined ? (
-         "loading"
-        ) : ( <Fragment>
-            <p>Other Films</p>
+        <p>Other Films</p>
+        {showInfo && (
+        <Fragment>
             {actorMovieList.map(movieName => {
               return (
                 <li className={s.movie_name} key={movieName}>

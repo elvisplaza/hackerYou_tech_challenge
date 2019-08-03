@@ -35,7 +35,7 @@ const MovieCard = props => {
 
   return (
     <section className={s.movie_card}>
-      {movie.credits !== undefined ? (
+      {movie !== undefined ? (
         <Fragment>
           <h2 className={s.movie_card_title}>{movie.original_title}</h2>
           <p>

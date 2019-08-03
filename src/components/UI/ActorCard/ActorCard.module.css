@@ -1,0 +1,27 @@
+@import "./../../common.module.css";
+
+.actor {
+  
+  display:flex;
+ 
+}
+
+.movie_icon {
+  height:30px;
+  width:30px;
+  margin-left:5px;
+}
+.movie_list_container {
+  margin-left:10px;
+ padding-bottom:10px;
+}
+
+.movie_list_container p {
+  font-weight:500;
+  margin-bottom:5px;
+}
+.movie_name {
+  font-style: italic;
+  list-style-type: none;
+
+}

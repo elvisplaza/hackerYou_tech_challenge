@@ -1,0 +1,47 @@
+@import "./../../common.module.css";
+
+.home {
+  display:flex;
+  overflow-y:hidden;
+  height:100vh;
+
+}
+.headings {
+  margin-left:10px;
+  font-size:42px;
+  font-weight:500;
+  margin:0;
+  transform: translateX(27%);
+}
+
+.left_bar {
+  width:200px;
+  background: #cfcfcf;
+  padding:15px;
+  min-height: 100vh;
+  /* position: relative; */
+}
+
+.banner_bar {
+  background:#eb6d21;
+  padding:15px;
+  position: absolute;
+  width:98%;
+  right:0;
+  left:20;
+  top:20px;
+  display: flex;
+  margin:0;
+  align-items: center;
+  
+}
+.movie_cards_container {
+  overflow-y:scroll;
+  margin-top:100px;
+  padding:15px;
+  width:calc(100% - 200px);
+  display:flex;
+  overflow-x:hidden;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

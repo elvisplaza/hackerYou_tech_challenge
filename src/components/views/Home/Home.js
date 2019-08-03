@@ -17,7 +17,7 @@ const Home = props => {
     const movieList = await getAllMovies();
     const popularFilms = await filterOutLowerThan10(movieList);
     const sortedMovieList = sortMovies(popularFilms);
-
+    
     return setMovieList(sortedMovieList);
   };
 

@@ -24,7 +24,7 @@ const MovieCard = props => {
   const getMovieInfo = async () => {
     const { id } = props.movieInfo;
     const movieInfo = await getMovieDetails(id);
-    // console.log(movieInfo, "movieInfo");
+    console.log(movieInfo, "movieInfo");
     return setMovie(movieInfo);
   };
   // =============== start of useEffect =================
@@ -42,6 +42,12 @@ const MovieCard = props => {
             {" "}
             <span>Release Date:</span> {movie.release_date}
           </p>
+          {movie.tagline !== "" && (
+            <p>
+              <span>Tagline:</span>
+              {movie.tagline}
+            </p>
+          )}
           <p>
             <span>Run time:</span> {movie.runtime} mins
           </p>
